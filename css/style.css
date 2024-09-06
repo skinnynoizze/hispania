@@ -131,6 +131,18 @@ Primary use: Multipurpose Template
 }
 
 
+.inner-nav.desktop-nav ul.clearlist li a {
+    text-decoration: none;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+  }
+  
+  .inner-nav.desktop-nav ul.clearlist li a:hover,
+  .inner-nav.desktop-nav ul.clearlist li a.active {
+    text-decoration: underline;
+    color: #000;
+  }
+
 
 @media (max-width: 1040px) {
     .main-nav {
