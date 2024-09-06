@@ -10,7 +10,7 @@
         
         // Page loader        
         $(".page-loader div").fadeOut();
-        $(".page-loader").delay(200).fadeOut("slow");
+        $(".page-loader").delay(100).fadeOut("slow");
         
         init_text_rotator();
         initWorkFilter();
