@@ -132,6 +132,142 @@ Primary use: Multipurpose Template
 
 
 
+@media (max-width: 1040px) {
+    .main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1002;
+      background-color: #fff; /* Adjust this to match your navbar background */
+    }
+  
+    .inner-nav.desktop-nav.js-opened {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      z-index: 1001;
+    }
+  
+    .inner-nav.desktop-nav.js-opened .clearlist {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      padding-top: 0px; /* Adjust this value to match your navbar height */
+      display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    }
+  
+    /* Ensure logo and toggle button remain visible */
+    .nav-logo-wrap,
+    .mobile-nav {
+      position: relative;
+      z-index: 1003;
+    }
+    .mobile-nav {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+      }
+    
+      .hamburger-icon,
+      .hamburger-icon:before,
+      .hamburger-icon:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+      }
+    
+      .hamburger-icon {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    
+      .hamburger-icon:before {
+        top: -8px;
+      }
+    
+      .hamburger-icon:after {
+        bottom: -8px;
+      }
+    
+      .mobile-nav.active .hamburger-icon {
+        background-color: transparent;
+      }
+    
+      .mobile-nav.active .hamburger-icon:before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+    
+      .mobile-nav.active .hamburger-icon:after {
+        transform: rotate(-45deg);
+        bottom: 0;
+      }
+
+      .inner-nav.desktop-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+    
+      .inner-nav.desktop-nav.js-opened {
+        opacity: 1;
+        visibility: visible;
+      }
+    
+      .inner-nav.desktop-nav .clearlist {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    
+      .inner-nav.desktop-nav.js-opened .clearlist {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    
+      /* Ensure the main nav stays on top */
+      .main-nav {
+        position: relative;
+        z-index: 1002;
+      }
+
+      
+  }
+
+
 
 .img-enhanced {
     border-radius: 8px;
@@ -170,6 +306,7 @@ Primary use: Multipurpose Template
     }
   }
 
+  
 
 
 /* ==============================
@@ -2111,7 +2248,7 @@ a.logo:hover{
 .mobile-on .desktop-nav ul{
     width: 100%;
     float: none;
-    background: rgba(18,18,18, .99);
+    background: rgba(255, 255, 255, 0.95);
     position: relative;
     overflow-x: hidden;
 }
@@ -2137,17 +2274,19 @@ a.logo:hover{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 10px;
-    text-align: left;
+    text-align: center;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255, .065);
-    color: #ccc;
+    color: #333;
     cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 .mobile-on .desktop-nav ul li a:hover,
 .mobile-on .desktop-nav ul li a.active{
     background: rgba(255,255,255, .05);
-    color: #eee;
+    color: #000;
 }
 .mobile-on .desktop-nav ul li a:focus{
     outline-offset: -2px !important; 

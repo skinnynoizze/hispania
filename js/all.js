@@ -189,32 +189,50 @@
         // Mobile menu toggle
         
         mobile_nav.click(function(){
-                  
-            if (desktop_nav.hasClass("js-opened")) {
-                desktop_nav.slideUp("slow", "easeOutExpo").removeClass("js-opened");
-                $(this).removeClass("active");
-                $(this).attr("aria-expanded", "false");
-            }
-            else {
-                desktop_nav.slideDown("slow", "easeOutQuart").addClass("js-opened");
-                $(this).addClass("active");
-                $(this).attr("aria-expanded", "true");
-                // Fix for responsive menu
-                if ($(".main-nav").hasClass("not-top")){
-                    $(window).scrollTo(".main-nav", "slow"); 
-                }                
-            }   
-                     
+            toggleMenu();
         });
         
         $(document).on("click", function(event){            
             if ($(window).width() <= 1024) {
                 var $trigger = $(".main-nav");
                 if ($trigger !== event.target && !$trigger.has(event.target).length) {
-                    desktop_nav.slideUp("slow", "easeOutExpo").removeClass("js-opened");
-                    mobile_nav.removeClass("active");
-                    mobile_nav.attr("aria-expanded", "false");
+                    closeMenu();
                 }
+            }
+        });
+        
+        // Add this new function to handle menu toggling
+        function toggleMenu() {
+            if (desktop_nav.hasClass("js-opened")) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+        
+        // Function to open the menu
+        function openMenu() {
+            desktop_nav.addClass("js-opened");
+            mobile_nav.addClass("active");
+            mobile_nav.attr("aria-expanded", "true");
+        }
+        
+        // Function to close the menu
+        function closeMenu() {
+            desktop_nav.removeClass("js-opened");
+            mobile_nav.removeClass("active");
+            mobile_nav.attr("aria-expanded", "false");
+        }
+        
+        // Add click event listener to menu items
+        $(".inner-nav.desktop-nav .clearlist li a").click(function(e) {
+            if ($(window).width() <= 1024) {
+                e.preventDefault();
+                var href = $(this).attr("href");
+                closeMenu();
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 300);
             }
         });
         
