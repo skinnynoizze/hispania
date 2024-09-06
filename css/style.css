@@ -164,7 +164,7 @@ Primary use: Multipurpose Template
       padding-top: 0px; /* Adjust this value to match your navbar height */
       display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: 100%;
     }
   
